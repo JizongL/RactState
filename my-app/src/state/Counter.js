@@ -4,6 +4,7 @@ class Counter extends React.Component {
   state = {
     count: 0
   };
+  // method 1 
   //  constructor(props){
 //    super(props)
 //    this.state = {
@@ -12,15 +13,20 @@ class Counter extends React.Component {
 //     this.handleButtonClick=this.handleButtonClick.bind(this)
 //  }
 
-  handleButtonClick(){
-    console.log(this.state.count);
+// current method, use arrow function, method 3. 
+  handleButtonClick=()=>{
+    const newCount = this.state.count+1
+    this.setState({
+      count:newCount
+    }) 
   } 
   render() {
     return (
       <div>
         <p>The current count: {this.state.count}</p>
         <button
-        onClick = {()=>this.handleButtonClick()}
+        onClick = {this.handleButtonClick} 
+        //onClick = {()=>this.handleButtonClick()}  method 2
         >
           Add 1
         </button>
